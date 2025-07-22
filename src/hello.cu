@@ -1,4 +1,5 @@
 #include <cstdio>
+#include <cuda_device_runtime_api.h>
 
 __global__ void hello() {
     printf("hello, world!\n");
