@@ -1,4 +1,5 @@
 #include <cstdio>
+#include <cuda_runtime.h>
 #include <cuda_device_runtime_api.h>
 
 __global__ void hello() {
@@ -8,7 +9,10 @@ __global__ void hello() {
 int main() {
     hello<<<1, 1>>>();
 
-    cudaDeviceSynchronize();
+    cudaError_t err = cudaDeviceSynchronize();
+    if (err != cudaSuccess) {
+        printf("CUDA error: %s\n", cudaGetErrorString(err));
+    }
 
     return 0;
 }
