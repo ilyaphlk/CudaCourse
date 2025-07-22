@@ -3,6 +3,7 @@
 
 __global__ void hello() {
     printf("hello, world!\n");
+    fflush(stdout);
 }
 
 int main() {
