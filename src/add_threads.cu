@@ -2,7 +2,8 @@
 #include <cuda_runtime.h>
 
 __global__ void add_threads(int* s, const int n) {
-    *s = threadIdx.x + n * blockIdx.x;
+    //*s = threadIdx.x + n * blockIdx.x;
+    *s = n;
 }
 
 int main() {
