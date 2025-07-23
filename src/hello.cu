@@ -2,7 +2,7 @@
 #include <cuda_runtime.h>
 
 __global__ void hello() {
-    printf("hello, world!\n", threadIdx.x);
+    printf("hello, world! thread number %d\n", threadIdx.x);
 }
 
 int main() {
