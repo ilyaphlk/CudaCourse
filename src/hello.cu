@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <stdio.h>
 #include <cuda_runtime.h>
 
 __device__ void write_string(char* buffer, const char* message) {
