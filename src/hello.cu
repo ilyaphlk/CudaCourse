@@ -2,8 +2,7 @@
 #include <cuda_runtime.h>
 
 __global__ void hello() {
-    printf("hello, world!\n");
-    fflush(stdout);
+    printf("hello, world!\n", threadIdx.x);
 }
 
 int main() {
