@@ -1,8 +1,17 @@
 #include <cstdio>
 #include <cuda_runtime.h>
 
+__device__ void write_string(char* buffer, const char* message) {
+    int i = 0;
+    while (message[i] != '\0') {
+        buffer[i] = message[i];
+        ++i;
+    }
+    buffer[i] = '\0';
+}
+
 __global__ void hello(char* buffer) {
-    sprintf(buffer, "hello, world! thread number %d\n", threadIdx.x);
+    write_string(buffer, "hello, world!\n");
 }
 
 int main() {
