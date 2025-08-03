@@ -8,7 +8,7 @@ __global__ void add_threads(int* s, const int n) {
 int main() {
     int hSum = 0;
     int* dSum;
-    CudaMalloc(&dSum, sizeof(int));
+    cudaMalloc(&dSum, sizeof(int));
     const int n = 8;
     add_threads<<<1, n>>>(&dSum, n);
 
@@ -17,8 +17,8 @@ int main() {
         printf("CUDA error: %s\n", cudaGetErrorString(err));
     }
 
-    CudaMemcpy(&hSum, dSum);
-    CudaFree(dSum);
+    cudaMemcpy(&hSum, dSum);
+    cudaFree(dSum);
 
     printf("sum is %d\n", hSum);
 }
