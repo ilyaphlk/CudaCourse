@@ -17,7 +17,7 @@ int main() {
         printf("CUDA error: %s\n", cudaGetErrorString(err));
     }
 
-    cudaMemcpy(&hSum, dSum, cudaMemcpyDeviceToHost);
+    cudaMemcpy(&hSum, dSum, sizeof(int), cudaMemcpyDeviceToHost);
     cudaFree(dSum);
 
     printf("sum is %d\n", hSum);
