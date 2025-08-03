@@ -10,7 +10,7 @@ int main() {
     int* dSum;
     cudaMalloc(&dSum, sizeof(int));
     const int n = 8;
-    add_threads<<<1, n>>>(&dSum, n);
+    add_threads<<<1, n>>>(dSum, n);
 
     cudaError_t err = cudaDeviceSynchronize();
     if (err != cudaSuccess) {
